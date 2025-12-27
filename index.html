@@ -10,7 +10,7 @@
     />
     <meta
       property="og:image"
-      content="https://alvinadan111.github.io/WeddingInvitationShortVid/thumbnail.jpg"
+      content="https://alvinadan111.github.io/WeddingInvitationShortVid/thumbnail2.jpg"
     />
     <meta
       property="og:url"
@@ -36,9 +36,24 @@
     </style>
   </head>
   <body>
-    <video autoplay muted controls playsinline>
+    <video id="videoInv" controls>
       <source src="videoInvitation.mov" type="video/mp4" />
     </video>
     <p>🔊 Tap to unmute</p>
+    <script>
+      const video = document.getElementById("videoInv");
+
+      video.addEventListener("play", () => {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) {
+          // Safari
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          // IE11
+          video.msRequestFullscreen();
+        }
+      });
+    </script>
   </body>
 </html>
